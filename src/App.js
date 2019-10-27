@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { jsonUrl } from './index'
+import React, {
+  useReducer,
+  createContext,
+  useEffect
+} from 'react';
+import { reducer } from './reducer/reducer'
 
-function App() {
+import Todo from './components/Todo'
+import Form from './components/Form'
+
+export const DispatchContext = createContext(() => {})
+
+const App = initTodo => {
+  const [todos, dispatch] = useReducer(reducer, initTodo.initTodo.TODOS)
+
+  useEffect(() => {
+    const newTodos = {
+      TODOS: [...todos]
+    }
+  
+    fetch(jsonUrl, {
+      method: 'PUT',
+      body: JSON.stringify(newTodos),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }, [todos])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <DispatchContext.Provider value={dispatch}>
+        <ul className="todo-list">
+          {todos.map((todo, index) => (
+            <Todo index={index} key={index} todo={todo} />
+          ))}
+        </ul>
+        <Form  />
+      </DispatchContext.Provider>
+    </>
+  )
 }
 
 export default App;
