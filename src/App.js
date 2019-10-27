@@ -5,7 +5,6 @@ import React, {
   useEffect
 } from 'react';
 import { reducer } from './reducer/reducer'
-
 import Todo from './components/Todo'
 import Form from './components/Form'
 
@@ -29,7 +28,7 @@ const App = initTodo => {
   }, [todos])
 
   return (
-    <>
+    <div className="todo-wrap">
       <DispatchContext.Provider value={dispatch}>
         <ul className="todo-list">
           {todos.map((todo, index) => (
@@ -38,7 +37,7 @@ const App = initTodo => {
         </ul>
         <Form  />
       </DispatchContext.Provider>
-    </>
+    </div>
   )
 }
 

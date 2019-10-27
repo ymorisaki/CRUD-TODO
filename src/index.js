@@ -4,7 +4,7 @@ import App from './App';
 import './reset.css'
 import './App.css'
 
-export const jsonUrl = 'https://api.myjson.com/bins/1e8uds'
+export let jsonUrl = 'https://api.myjson.com/bins/1e8uds'
 
 fetch(jsonUrl)
   .then(response => {

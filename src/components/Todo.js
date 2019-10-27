@@ -1,4 +1,6 @@
-import React, { useContext } from 'react';
+import React, {
+  useContext
+} from 'react';
 
 import { removeTodo } from '../actions/actions'
 import { DispatchContext } from '../App'
