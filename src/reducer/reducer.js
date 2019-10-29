@@ -13,6 +13,15 @@ export const reducer = (todos, action) => {
         }
       }
       return newTodos
+    case 'TOGGLE_TODO':
+      return todos.map((todo, index) => {
+        if (action.index === index) {
+          return Object.assign({}, todo, {
+            isComplete: !todo.isComplete
+          })
+        }
+        return todo
+      })
     default:
       return todos
   }
