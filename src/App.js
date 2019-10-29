@@ -5,8 +5,8 @@ import React, {
   useEffect
 } from 'react';
 import { reducer } from './reducer/reducer'
-import Todo from './components/Todo'
 import Form from './components/Form'
+import TodoList from './components/TodoList'
 
 export const DispatchContext = createContext()
 
@@ -30,11 +30,7 @@ const App = initTodo => {
   return (
     <div className="todo-wrap">
       <DispatchContext.Provider value={dispatch}>
-        <ul className="todo-list">
-          {todos.map((todo, index) => (
-            <Todo index={index} key={index} todo={todo} />
-          ))}
-        </ul>
+        <TodoList todos={todos} />
         <Form  />
       </DispatchContext.Provider>
     </div>

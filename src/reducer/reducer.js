@@ -23,6 +23,6 @@ export const reducer = (todos, action) => {
         return todo
       })
     default:
-      return todos
+      return [...todos]
   }
 }
