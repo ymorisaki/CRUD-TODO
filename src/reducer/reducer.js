@@ -1,5 +1,7 @@
 export const reducer = (todos, action) => {
   switch(action.type) {
+    case 'INIT_TODO':
+      return action.todos
     case 'ADD_TODO':
       return [...todos, {
         text: action.text,
