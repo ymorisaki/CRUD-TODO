@@ -11,7 +11,7 @@ import TodoList from './components/TodoList'
 
 export const DispatchContext = createContext()
 
-const jsonUrl = 'https://api.myjson.com/bins/1e8uds'
+const jsonUri = 'https://api.myjson.com/bins/1e8uds'
 
 const App = () => {
   const [todos, dispatch] = useReducer(reducer, [])
@@ -22,9 +22,9 @@ const App = () => {
       TODOS: [...todos]
     }
 
-    // 初回読み込み時の処理
+    // 初回レンダリング後の処理
     if (isFirstRender.current) {
-      fetch(jsonUrl)
+      fetch(jsonUri)
       .then(response => {
         return response.json()
       })
@@ -32,16 +32,18 @@ const App = () => {
         newTodos.TODOS = [init.TODOS]
         dispatch(initTodo(init.TODOS))
         isFirstRender.current = false
-      })
-    } else {
-      fetch(jsonUrl, {
-        method: 'PUT',
-        body: JSON.stringify(newTodos),
-        headers: {
-          'Content-Type': 'application/json'
-        }
+        return
       })
     }
+
+    // ２回目以降のレンダリング後の処理
+    fetch(jsonUri, {
+      method: 'PUT',
+      body: JSON.stringify(newTodos),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
   })
 
   return (

@@ -4,13 +4,6 @@ import App from './App';
 import './reset.css'
 import './App.css'
 
-
-// fetch(jsonUrl)
-// .then(response => {
-//   return response.json()
-// })
-// .then(initTodo => {
-// })
 ReactDOM.render(
   <App />,
   document.getElementById('root')

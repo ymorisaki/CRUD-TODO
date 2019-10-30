@@ -13,8 +13,8 @@ const Todo = ({ todo, index }) => {
       <p style={{textDecoration: todo.isComplete ? 'line-through' : 'none'}}>{ todo.text }</p>
       <ul className="button-list">
         <li>
-          <button type="button" onClick={() => dispatch(toggleTodo(index))}>達成する</button>
-          <button type="button" onClick={() => dispatch(removeTodo(index))}>削除する</button>
+          <button type="button" onClick={() => dispatch(toggleTodo(index))}>{ todo.isComplete ? '未達成' : '達成' }</button>
+          <button type="button" onClick={() => dispatch(removeTodo(index))}>削除</button>
         </li>
       </ul>
     </li>
