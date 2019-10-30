@@ -2,7 +2,6 @@ import React, {
   useState,
   useContext,
 } from 'react';
-
 import { addTodo } from '../actions/actions'
 import { DispatchContext } from '../App'
 

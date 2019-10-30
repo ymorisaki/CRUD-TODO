@@ -5,6 +5,11 @@ import React, {
 import { removeTodo, toggleTodo } from '../actions/actions'
 import { DispatchContext } from '../App'
 
+/**
+ * Component
+ * @param {Object} todo TODOの内容と達成状況を持つ
+ * @param {Number} index 何番目のTODOリストかを表す
+ */
 const Todo = ({ todo, index }) => {
   const dispatch = useContext(DispatchContext)
 

@@ -1,3 +1,8 @@
+/**
+ * Reducer
+ * @param {Array} todos TODOリストオブジェクトを格納する配列
+ * @param {Object} action どのような更新かを示す[action.type]と更新された値及び項目を示すプロパティを格納
+ */
 export const reducer = (todos, action) => {
   switch(action.type) {
     case 'INIT_TODO':

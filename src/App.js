@@ -11,10 +11,13 @@ import TodoList from './components/TodoList'
 
 export const DispatchContext = createContext()
 
-const jsonUri = 'https://api.myjson.com/bins/1e8uds'
-
-const App = () => {
-  const [todos, dispatch] = useReducer(reducer, [])
+/**
+ * カスタムフック（useRef, useEffect）
+ * @param {Array} todos TODOリストObjectを列挙する配列
+ * @param {Function} dispatch 更新されたTODOリストをアップデートする関数
+ */
+const useRender = (todos, dispatch) => {
+  const jsonUri = 'https://api.myjson.com/bins/1e8uds'
   const isFirstRender = useRef(true)
 
   useEffect(() => {
@@ -45,6 +48,12 @@ const App = () => {
       }
     })
   })
+}
+
+const App = () => {
+  const [todos, dispatch] = useReducer(reducer, [])
+
+  useRender(todos, dispatch)
 
   return (
     <div className="todo-wrap">
