@@ -1,8 +1,10 @@
 import React, {
   useContext
 } from 'react';
-
-import { removeTodo, toggleTodo } from '../actions/actions'
+import {
+  removeTodo,
+  toggleTodo
+} from '../actions/actions'
 import { DispatchContext } from '../App'
 
 /**
