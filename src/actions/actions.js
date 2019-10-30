@@ -1,3 +1,10 @@
+export const initTodo = todos => {
+  return {
+    type: 'INIT_TODO',
+    todos
+  }
+}
+
 export const addTodo = text => {
   return {
     type: 'ADD_TODO',

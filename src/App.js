@@ -12,6 +12,7 @@ export const DispatchContext = createContext()
 
 const App = initTodo => {
   const [todos, dispatch] = useReducer(reducer, initTodo.initTodo.TODOS)
+  console.log(initTodo)
 
   useEffect(() => {
     const newTodos = {
