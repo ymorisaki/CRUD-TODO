@@ -1,6 +1,5 @@
 import React, {
   useReducer,
-  createContext,
   useEffect,
   useRef
 } from 'react';
@@ -8,14 +7,14 @@ import AppConponent from '../components/App'
 import { reducer } from '../reducer/reducer'
 import { initTodo } from '../actions/actions'
 
-export const DispatchContext = createContext()
-
 /**
- * カスタムフック（useRef, useEffect）
+ * カスタムフック（useReducer, useRef, useEffect）
  * @param {Array} todos TODOリストObjectを列挙する配列
  * @param {Function} dispatch 更新されたTODOリストをアップデートする関数
+ * @returns {Array} [todos]現在のTODOリスト, [dispatch]actionCreaterをReducerへ渡す関数
  */
-const useRender = (todos, dispatch) => {
+const useRender = () => {
+  const [todos, dispatch] = useReducer(reducer, [])
   const jsonUri = 'https://api.myjson.com/bins/1e8uds'
   const isFirstRender = useRef(true)
 
@@ -46,14 +45,16 @@ const useRender = (todos, dispatch) => {
         'Content-Type': 'application/json'
       }
     })
-  })
+  }, [todos])
+
+  return [todos, dispatch]
 }
 
 const AppContainer = () => {
-  const [todos, dispatch] = useReducer(reducer, [])
+  const [todos, dispatch] = useRender()
 
   return (
-    <AppConponent todos={todos} dispatch={dispatch} useRender={useRender} />
+    <AppConponent todos={todos} dispatch={dispatch} />
   )
 }
 

@@ -6,8 +6,7 @@ import TodoList from './TodoList'
 
 export const DispatchContext = createContext()
 
-const AppConponent = ({ todos, dispatch, useRender }) => {
-  useRender(todos, dispatch)
+const AppConponent = ({ todos, dispatch }) => {
 
   return (
     <div className="todo-wrap">
