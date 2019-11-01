@@ -3,7 +3,7 @@ import React, {
   useContext,
 } from 'react';
 import { addTodo } from '../actions/actions'
-import { DispatchContext } from '../App'
+import { DispatchContext } from './App'
 
 const Form = () => {
   const [value, setValue] = useState('')

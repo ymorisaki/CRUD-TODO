@@ -5,7 +5,7 @@ import {
   removeTodo,
   toggleTodo
 } from '../actions/actions'
-import { DispatchContext } from '../App'
+import { DispatchContext } from './App'
 
 /**
  * Component

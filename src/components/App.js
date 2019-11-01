@@ -4,10 +4,10 @@ import React, {
   useEffect,
   useRef
 } from 'react';
-import { reducer } from './reducer/reducer'
-import { initTodo } from './actions/actions'
-import Form from './components/Form'
-import TodoList from './components/TodoList'
+import { reducer } from '../reducer/reducer'
+import { initTodo } from '../actions/actions'
+import Form from './Form'
+import TodoList from './TodoList'
 
 export const DispatchContext = createContext()
 
