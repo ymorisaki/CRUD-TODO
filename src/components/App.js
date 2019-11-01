@@ -1,6 +1,4 @@
-import React, {
-  createContext,
-} from 'react';
+import React, { createContext } from 'react';
 import Form from './Form'
 import TodoList from './TodoList'
 

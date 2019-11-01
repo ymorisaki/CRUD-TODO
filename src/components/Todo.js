@@ -1,11 +1,9 @@
-import React, {
-  useContext
-} from 'react';
+import React, { useContext } from 'react';
+import { DispatchContext } from './App'
 import {
   removeTodo,
   toggleTodo
 } from '../actions/actions'
-import { DispatchContext } from './App'
 
 /**
  * Component
