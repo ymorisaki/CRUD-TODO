@@ -4,7 +4,7 @@ import React, {
   useEffect,
   useRef
 } from 'react';
-import AppConponents from '../components/App'
+import AppConponent from '../components/App'
 import { reducer } from '../reducer/reducer'
 import { initTodo } from '../actions/actions'
 
@@ -18,7 +18,6 @@ export const DispatchContext = createContext()
 const useRender = (todos, dispatch) => {
   const jsonUri = 'https://api.myjson.com/bins/1e8uds'
   const isFirstRender = useRef(true)
-  console.log('hello')
 
   useEffect(() => {
     const newTodos = {
@@ -50,12 +49,12 @@ const useRender = (todos, dispatch) => {
   })
 }
 
-const App = () => {
+const AppContainer = () => {
   const [todos, dispatch] = useReducer(reducer, [])
 
   return (
-    <AppConponents todos={todos} dispatch={dispatch} useRender={useRender} />
+    <AppConponent todos={todos} dispatch={dispatch} useRender={useRender} />
   )
 }
 
-export default App;
+export default AppContainer;

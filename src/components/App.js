@@ -6,7 +6,7 @@ import TodoList from './TodoList'
 
 export const DispatchContext = createContext()
 
-const App = ({todos, dispatch, useRender}) => {
+const AppConponent = ({ todos, dispatch, useRender }) => {
   useRender(todos, dispatch)
 
   return (
@@ -19,4 +19,4 @@ const App = ({todos, dispatch, useRender}) => {
   )
 }
 
-export default App;
+export default AppConponent;
