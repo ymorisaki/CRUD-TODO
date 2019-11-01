@@ -10,7 +10,7 @@ const AppConponent = ({ todos, dispatch }) => {
     <div className="todo-wrap">
       <DispatchContext.Provider value={dispatch}>
         <TodoList todos={todos} />
-        <Form  />
+        <Form />
       </DispatchContext.Provider>
     </div>
   )

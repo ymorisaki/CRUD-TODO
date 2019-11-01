@@ -15,8 +15,8 @@ import { initTodo } from '../actions/actions'
  */
 const useRender = () => {
   const [todos, dispatch] = useReducer(reducer, [])
-  const jsonUri = 'https://api.myjson.com/bins/1e8uds'
   const isFirstRender = useRef(true)
+  const jsonUri = 'https://api.myjson.com/bins/1e8uds'
 
   useEffect(() => {
     const newTodos = {
