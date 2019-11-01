@@ -4,10 +4,9 @@ import React, {
   useEffect,
   useRef
 } from 'react';
+import AppConponents from '../components/App'
 import { reducer } from '../reducer/reducer'
 import { initTodo } from '../actions/actions'
-import Form from '../components/Form'
-import TodoList from '../components/TodoList'
 
 export const DispatchContext = createContext()
 
@@ -19,6 +18,7 @@ export const DispatchContext = createContext()
 const useRender = (todos, dispatch) => {
   const jsonUri = 'https://api.myjson.com/bins/1e8uds'
   const isFirstRender = useRef(true)
+  console.log('hello')
 
   useEffect(() => {
     const newTodos = {
@@ -53,15 +53,8 @@ const useRender = (todos, dispatch) => {
 const App = () => {
   const [todos, dispatch] = useReducer(reducer, [])
 
-  useRender(todos, dispatch)
-
   return (
-    <div className="todo-wrap">
-      <DispatchContext.Provider value={dispatch}>
-        <TodoList todos={todos} />
-        <Form  />
-      </DispatchContext.Provider>
-    </div>
+    <AppConponents todos={todos} dispatch={dispatch} useRender={useRender} />
   )
 }
 
